@@ -1,4 +1,14 @@
+var createPolitician = function (name)
+{
 var politician = {};
-politician.name = "";
+politician.name = name;
 politician.electionResults = null;
-politician.votes = 0;
+politician.totalVotes = 0;
+
+console.log (politician.name);
+
+  return politician;
+  };
+
+var jane = createPolitician ("Jane Eyre");
+var edward = createPolitician ("Edward Rochester");
