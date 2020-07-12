@@ -18,16 +18,7 @@ var createPolitician = function(name) {
  return politician;
 };
 
-var winner = "???";
-  if (jane.totalVotes > edward.totalVotes) {
-    winner = jane.name; }
-  if (edward.totalVotes > jane.totalVotes)
-    {winner = edward.name;}
-    else {
-      winner = "DRAW.";
-}
-
-
+//End factory
 
 //Defining who the politicians are
 var jane = createPolitician("Jane Eyre");
@@ -54,5 +45,15 @@ edward.tallyUpTotalVotes();
 console.log(jane.totalVotes);
 console.log(edward.totalVotes);
 
-//console show the winner
+//Declaring the winner
+var winner = "???";
+  if (jane.totalVotes > edward.totalVotes) {
+    winner = jane.name; }
+  if (edward.totalVotes > jane.totalVotes)
+    {winner = edward.name;}
+    else {
+      winner = "DRAW.";
+}
+
+//Console log to show the winner
 console.log ("And the winner is " + winner + "!!!");
