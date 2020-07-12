@@ -1,9 +1,10 @@
 //Factory function to create individual politicians
-var createPolitician = function(name) {
+var createPolitician = function(name, partyColor) {
   var politician = {};
   politician.name = name;
   politician.electionResults = null;
   politician.totalVotes = 0;
+  politician.partyColor = partyColor;
 
   //Method to add up votes
   politician.tallyUpTotalVotes = function() {
@@ -20,9 +21,9 @@ var createPolitician = function(name) {
 
 //End factory
 
-//Defining who the politicians are
-var jane = createPolitician("Jane Eyre");
-var edward = createPolitician("Edward Rochester");
+//Defining who the politicians are- name and party color
+var jane = createPolitician("Jane Eyre",  [132, 17, 11]);
+var edward = createPolitician("Edward Rochester",  [245, 141, 136]);
 
 //Electoral votes and their changes
 jane.electionResults = [5, 1, 7, 2, 33, 6, 4, 2, 1, 14, 8, 3, 1, 11, 11, 0, 5, 3, 3, 3, 7, 4, 8, 9, 3, 7, 2, 2, 4, 2, 8, 3, 15, 15, 2, 12, 0, 4, 13, 1, 3, 2, 8, 21, 3, 2, 11, 1, 3, 7, 2];
@@ -44,6 +45,10 @@ edward.tallyUpTotalVotes();
 //console show vote totals
 console.log(jane.totalVotes);
 console.log(edward.totalVotes);
+
+//console to show colors
+console.log (jane.partyColor);
+console.log (edward.partyColor);
 
 //Declaring the winner
 var winner = "???";
