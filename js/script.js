@@ -16,14 +16,14 @@ var createPolitician = function(name, partyColor) {
     }
 
   };
- return politician;
+  return politician;
 };
 
 //End factory
 
 //Defining who the politicians are- name and party color
-var jane = createPolitician("Jane Eyre",  [132, 17, 11]);
-var edward = createPolitician("Edward Rochester",  [245, 141, 136]);
+var jane = createPolitician("Jane Eyre", [132, 17, 11]);
+var edward = createPolitician("Edward Rochester", [245, 141, 136]);
 
 //Electoral votes and their changes
 jane.electionResults = [5, 1, 7, 2, 33, 6, 4, 2, 1, 14, 8, 3, 1, 11, 11, 0, 5, 3, 3, 3, 7, 4, 8, 9, 3, 7, 2, 2, 4, 2, 8, 3, 15, 15, 2, 12, 0, 4, 13, 1, 3, 2, 8, 21, 3, 2, 11, 1, 3, 7, 2];
@@ -38,27 +38,45 @@ edward.electionResults[9] = 28;
 edward.electionResults[4] = 38;
 edward.electionResults[43] = 27;
 
+//Function to view state results
+
+var setStateResults = function(state) {
+
+  theStates[state].winner = null;
+  if (jane.electionResults[state] > edward.electionResults[state]) {
+
+    theStates[state].winner = jane;
+  } else if (jane.electionResults[state] < edward.electionResults[state]) {
+
+    theStates[state].winner = edward;
+  }
+  //Function to have mouse over color changes
+  var stateWinner = theStates[state].winner;
+  if (theStates[state].winner != null) {
+    theStates[state].rgbColor = stateWinner.partyColor;
+  } else {
+    theStates[state].rgbColor = [11, 32, 57];
+  }
+
+
+};
+
+
 //Run function to add up votes
 jane.tallyUpTotalVotes();
 edward.tallyUpTotalVotes();
 
-//console show vote totals
-console.log(jane.totalVotes);
-console.log(edward.totalVotes);
-
-//console to show colors
-console.log (jane.partyColor);
-console.log (edward.partyColor);
 
 //Declaring the winner
 var winner = "???";
-  if (jane.totalVotes > edward.totalVotes) {
-    winner = jane.name; }
-  if (edward.totalVotes > jane.totalVotes)
-    {winner = edward.name;}
-    else {
-      winner = "DRAW.";
+if (jane.totalVotes > edward.totalVotes) {
+  winner = jane.name;
+}
+if (edward.totalVotes > jane.totalVotes) {
+  winner = edward.name;
+} else {
+  winner = "DRAW.";
 }
 
 //Console log to show the winner
-console.log ("And the winner is " + winner + "!!!");
+console.log("And the winner is " + winner + "!!!");
