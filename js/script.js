@@ -38,7 +38,7 @@ edward.electionResults[9] = 28;
 edward.electionResults[4] = 38;
 edward.electionResults[43] = 27;
 
-//Function to view state results
+//Function to display winners from each state
 
 var setStateResults = function(state) {
 
@@ -58,7 +58,7 @@ var setStateResults = function(state) {
     theStates[state].rgbColor = [11, 32, 57];
   }
 
-  //Assigns values to State Results table
+  //DOM to connect JS to the State Results table
   var stateInfoTable = document.getElementById('stateResults');
   var header = stateInfoTable.children[0];
   var body = stateInfoTable.children[1];
@@ -69,6 +69,20 @@ var setStateResults = function(state) {
   var candidate1Results = body.children[0].children[1];
   var candidate2Results = body.children[1].children[1];
   var winnersName = body.children[2].children[1];
+
+  //JS to populate the State Results Table
+  stateName.innerText = theStates[state].nameFull;
+  abbrev.innerText = "(" + theStates[state].nameAbbrev + ")";
+  candidate1Name.innerText = jane.name;
+  candidate2Name.innerText = edward.name;
+  candidate1Results.innerText = jane.electionResults[state];
+  candidate2Results.innerText = edward.electionResults[state];
+
+  if (theStates[state].winner === null) {
+    winnersName.innerText = "DRAW";
+  } else {
+    winnersName.innerText = theStates[state].winner.name;
+  }
 
 };
 
