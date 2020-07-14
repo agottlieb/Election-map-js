@@ -58,6 +58,17 @@ var setStateResults = function(state) {
     theStates[state].rgbColor = [11, 32, 57];
   }
 
+  //Assigns values to State Results table
+  var stateInfoTable = document.getElementById('stateResults');
+  var header = stateInfoTable.children[0];
+  var body = stateInfoTable.children[1];
+  var stateName = header.children[0].children[0];
+  var abbrev = header.children[0].children[1];
+  var candidate1Name = body.children[0].children[0];
+  var candidate2Name = body.children[1].children[0];
+  var candidate1Results = body.children[0].children[1];
+  var candidate2Results = body.children[1].children[1];
+  var winnersName = body.children[2].children[1];
 
 };
 
@@ -78,8 +89,8 @@ if (edward.totalVotes > jane.totalVotes) {
   winner = "DRAW.";
 }
 
-//Function to populate table
-var countryInfoTable = document.getElementById ('countryResults');
+//Function to populate national results table
+var countryInfoTable = document.getElementById('countryResults');
 var row = countryInfoTable.children[0].children[0];
 row.children[0].innerText = jane.name;
 row.children[1].innerText = jane.totalVotes;
