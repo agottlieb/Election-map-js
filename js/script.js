@@ -78,5 +78,15 @@ if (edward.totalVotes > jane.totalVotes) {
   winner = "DRAW.";
 }
 
+//Function to populate table
+var countryInfoTable = document.getElementById ('countryResults');
+var row = countryInfoTable.children[0].children[0];
+row.children[0].innerText = jane.name;
+row.children[1].innerText = jane.totalVotes;
+row.children[2].innerText = edward.name;
+row.children[3].innerText = edward.totalVotes;
+row.children[5].innerText = winner;
+
+
 //Console log to show the winner
 console.log("And the winner is " + winner + "!!!");
